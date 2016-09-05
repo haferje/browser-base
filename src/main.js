@@ -59,7 +59,11 @@ const rootReducer = combineReducers({
 // The State object
 const state = makeState(rootReducer, middleware);
 
-console.debug('State => ', state);
+
+// Register ui component
+import ui from './ui';
+ui(state);
+
 
 // Kick off the router
 router.start();
@@ -72,3 +76,4 @@ router.navigate('test');
 
 // Fail
 // router.navigate('fail');
+
