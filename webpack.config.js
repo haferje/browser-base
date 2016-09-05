@@ -1,9 +1,17 @@
 'use strict';
+
+var ContextReplacementPlugin = require('webpack/lib/ContextReplacementPlugin');
 var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var path = require('path');
 
 module.exports = {
+	resolve: {
+		alias: {
+			fs: 'html5-fs',
+			systemjs: 'systemjs/dist/system',
+		}
+	},
 	module:	{
 		loaders: [
 			{ test: /\.js$/, exclude: /node_modules/, loaders: ['babel'] },
@@ -22,6 +30,7 @@ module.exports = {
 		return [autoprefixer]
 	},
 	plugins: [
+		new ContextReplacementPlugin(/systemjs/, /systemjs\/dist\/systemjs\.js$/),
 		new webpack.SourceMapDevToolPlugin({
 			// exclude the index entry point
 			exclude: /.*index.*$/,
