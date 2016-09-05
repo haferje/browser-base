@@ -16,3 +16,10 @@ body {
 	background-color: $base;
 }
 
+a {
+	text-decoration: underline;
+	cursor: pointer;
+	&:hover {
+		color: lighten($color, 15%);
+	}
+}
