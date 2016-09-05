@@ -45,8 +45,10 @@ module.exports = {
 			'./favicon.ico',
 			'./index.scss',
 			'./index.jade',
+			'file?name=[name].js!systemjs-plugin-babel/plugin-babel.js',
+			'file?name=[name].js!systemjs-plugin-babel/systemjs-babel-browser.js',
 			'./main.js',
-		]
+		],
 	},
 	output: {
 		filename: '[name].bundle.js',

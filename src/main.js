@@ -13,7 +13,9 @@ const routes = [
 	route('root', '/'),
 	route('blog', '/blog'),
 	route('toys', '/toys'),
-	route('contact', '/contact'),
+	route('contact', '/contact', {
+		systemjs: './contact/ui.js'
+	}),
 ];
 
 const router = new Router5(routes, {
@@ -23,7 +25,9 @@ const router = new Router5(routes, {
 	autoCleaUp: true,
 }).useMiddleware(createLoader({
 	routes,
-})).usePlugin(historyPlugin());
+	})).usePlugin(historyPlugin({
+		forceDeactivate: true
+	}));
 
 // Build state from some defaults
 import { makeState, defaultMiddleware } from './util/state';

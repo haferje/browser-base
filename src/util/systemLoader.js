@@ -1,5 +1,4 @@
 import System from 'systemjs';
-
 import { keyBy, isObject, isArray, isString, zip, fromPairs } from 'lodash/fp';
 
 const noop = () => {};
@@ -12,7 +11,13 @@ const opt = {
 	// Route definitions to find key on name match
 	routes: [],
 	// Systemjs config object
-	config: {},
+	config: {
+		map: {
+			'plugin-babel': './plugin-babel.js',
+			'systemjs-babel-build': './systemjs-babel-browser.js'
+		},
+		transpiler: 'plugin-babel'
+	},
 };
 
 export const createLoader = (options) => {
