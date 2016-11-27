@@ -5,11 +5,18 @@ var webpack = require('webpack');
 var autoprefixer = require('autoprefixer');
 var path = require('path');
 
+
+// Gen env arg
+const buildEnv = process.argv.filter(
+	(arg, i, col) => i > 0 && col[i - 1] === '--env'
+)[0] || 'localhost';
+
 module.exports = {
 	resolve: {
 		alias: {
 			fs: 'html5-fs',
 			systemjs: 'systemjs/dist/system',
+			environment: path.resolve(process.cwd(), 'env', buildEnv)
 		}
 	},
 	module:	{
@@ -42,7 +49,6 @@ module.exports = {
 	],
 	entry: {
 		app: [
-			'./favicon.ico',
 			'./index.scss',
 			'./index.jade',
 			'./main.js',

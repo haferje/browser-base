@@ -1,13 +1,21 @@
 'use strict';
 module.exports = {
-	extends: 'airbnb/base',
+	settings: {
+		'import/resolver': 'webpack',
+		'import/extensions': ['.js'],
+	},
+	extends: [
+		'airbnb/base',
+		'plugin:import/errors',
+		'plugin:import/warnings',
+	],
 	root: true,
 	parserOptions: {
-	ecmaVersion: 6,
 		sourceType: "module",
+		ecmaVersion: 6,
 		ecmaFeatures: {
 		 experimentalObjectRestSpread: true
-		}
+		},
 	},
 	rules: {
 		// 'no-undef': [1, 'always'],

@@ -1,8 +1,11 @@
+import env from 'environment';
 import './main.scss';
 
 // Build the router
 import { Router5 } from 'router5';
 import { createLoader } from './util/systemLoader';
+
+console.debug('Hello world', env);
 
 
 const route = (name, path, opts = {}) => ({ path, name, ...opts });
@@ -65,10 +68,10 @@ console.debug('State => ', state);
 router.start();
 
 // Pass and get d3 as systemjs value
-router.navigate('test');
+// router.navigate('test');
 
 // Pass and get object of { d3, lodash }
-// router.navigate('test2');
+router.navigate('test2');
 
 // Fail
 // router.navigate('fail');
